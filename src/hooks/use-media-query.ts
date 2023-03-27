@@ -8,7 +8,7 @@ import { useIsClient } from './use-is-client'
  * @returns {boolean} - Whether the media query is true or false.
  */
 
-export function useMediaQuery(queryString) {
+export function useMediaQuery(queryString: string) {
   const isClient = useIsClient()
 
   const mediaQuery = useMemo(() => {
@@ -27,7 +27,7 @@ export function useMediaQuery(queryString) {
 
   const [isMatch, setIsMatch] = useState(undefined)
 
-  const onChange = useCallback(({ matches }) => {
+  const onChange = useCallback(({ matches }: any) => {
     setIsMatch(matches)
   }, [])
 
@@ -38,7 +38,7 @@ export function useMediaQuery(queryString) {
       mediaQuery.addEventListener('change', onChange, { passive: true })
 
       return () => {
-        mediaQuery.removeEventListener('change', onChange, { passive: true })
+        mediaQuery.removeEventListener('change', onChange)
       }
     }
   }, [mediaQuery, onChange, isClient])

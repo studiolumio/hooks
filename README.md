@@ -1,17 +1,15 @@
-
 ## Introduction
 
-A compilation of utility react hooks we use to make our magic, heavily inspired by the Studio Freight Darkroom Team [Studio Freight](https://studiofreight.com)
+A compilation of utility react hooks we use to make our magic, heavily inspired by the SFDR Team [Studio Freight](https://studiofreight.com)
 
 <br/>
 
 ## Setup
 
 ```bash
-$ npm i @studiolumio/hooks
+$ yarn add @studio-lumio/hooks
+$ npm i @studio-lumio/hooks
 ```
-
-or use whatever package manager you like the most
 
 <br/>
 
@@ -25,9 +23,7 @@ This toolkit is composed of:
 
 `useDocumentReadyState` – returns true if document is ready.
 
-`useEventBus, { dipatch }` – creates a global event bus.
-
-<!-- `useFrame` – use `@studio-freight/tempus` animation frame. -->
+`useFrame` – use `@studio-freight/tempus` animation frame.
 
 `useInterval` – create and dispose intervals.
 
@@ -39,15 +35,27 @@ This toolkit is composed of:
 
 `useMediaQuery` – css-like media query support in Javascript.
 
-<!-- `useRect` – getboundingclientrect with scrollY sauce if using our [lenis](https://github.com/studio-freight/lenis) smooth scroll
+`useRect` – getboundingclientrect with scrollY sauce if using SFDR's [lenis](https://github.com/studio-freight/lenis) smooth scroll
 
-`useSlots` – brings vue `slots` to react -->
+`useSlots` – brings vue `slots` to react
+
+`useWindowSize` – returns window dimensions
+
+`useIntersectionObserver` – detects visibility of a component on the viewport using the IntersectionObserver API
+
+`useIsomorphicLayoutEffect` – identical to useEffect, but fires synchronously after all DOM mutations.
+
+`useCopyToClipboard` – provides a copy method to save a string in the clipboard and the copied value
+
+`useEventListener` – it does what the name says. Pass in an event and a callback functions as params
+
+`useDebounce` – uses an internal timer to execute the callback function every x seconds (2nd parameter)
+
+`useEffectOnce` – `useEffect` that's executed only one time, on mount.
 
 <br/>
 
 ## Authors
-
-This set of hooks is curated and maintained by the Studio Lumio:
 
 - Etuk Josiah Benjamin ([@jobenetuk](https://twitter.com/jobenetuk)) – [Studio Lumio](https://studiolumio.com)
 
