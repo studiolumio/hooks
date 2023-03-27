@@ -35,7 +35,7 @@ This toolkit is composed of:
 
 `useMediaQuery` – css-like media query support in Javascript.
 
-`useRect` – getboundingclientrect with scrollY sauce if using SFDR's [lenis](https://github.com/studio-freight/lenis) smooth scroll
+`useRect` – getboundingclientrect
 
 `useSlots` – brings vue `slots` to react
 

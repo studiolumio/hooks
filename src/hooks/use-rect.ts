@@ -1,94 +1,61 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { throttle } from 'throttle-debounce'
+import { useLayoutEffect, useCallback, useState, MutableRefObject } from 'react'
 
-// offsetTop function returns the offsetTop value of a DOM element.
-// The offsetTop value is the distance between the top of the element
-// and the top of the viewport.
-export function offsetTop(element: any, accumulator: number = 0): any {
-  const top = accumulator + element.offsetTop
-  if (element.offsetParent) {
-    return offsetTop(element.offsetParent, top)
-  }
-  return top
+export const useRect = (ref: MutableRefObject<any>) => {
+  const [rect, setRect] = useState(getRect(ref ? ref.current : null))
+
+  const handleResize = useCallback(() => {
+    if (!ref.current) {
+      return
+    }
+
+    // Update client rect
+    setRect(getRect(ref.current))
+  }, [ref])
+
+  useLayoutEffect(() => {
+    const element = ref.current
+    if (!element) {
+      return
+    }
+
+    handleResize()
+
+    if (typeof ResizeObserver === 'function') {
+      let resizeObserver = new ResizeObserver(() => handleResize())
+      resizeObserver.observe(element)
+
+      return () => {
+        if (!resizeObserver) {
+          return
+        }
+
+        resizeObserver.disconnect()
+        resizeObserver = null
+      }
+    } else {
+      // Browser support, remove freely
+      window.addEventListener('resize', handleResize)
+
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
+    }
+  }, [ref.current])
+
+  return rect
 }
 
-// offsetLeft function returns the offsetLeft value of a DOM element.
-// The offsetLeft value is the distance between the left of the element
-// and the left of the viewport.
-export function offsetLeft(element: any, accumulator: number = 0): any {
-  const left = accumulator + element.offsetLeft
-  if (element.offsetParent) {
-    return offsetLeft(element.offsetParent, left)
+function getRect(element) {
+  if (!element) {
+    return {
+      bottom: 0,
+      height: 0,
+      left: 0,
+      right: 0,
+      top: 0,
+      width: 0,
+    }
   }
-  return left
-}
 
-export function useRect({ lazy = false, debounce = 1000 } = {}): any[] {
-  const element = useRef()
-  const resizeObserver = useRef<any>(null)
-
-  const [rect, setRect] = useState({})
-  const lazyRect = useRef(rect)
-
-  const resize = useCallback(() => {
-    if (element.current) {
-      const top = offsetTop(element.current)
-      const left = offsetLeft(element.current)
-
-      lazyRect.current = { ...lazyRect.current, top, left }
-      if (!lazy) {
-        setRect(lazyRect.current)
-      }
-    }
-  }, [lazy])
-
-  // resize if body height changes
-  useEffect(() => {
-    const callback = throttle(debounce, resize)
-    const resizeObserver = new ResizeObserver(callback)
-    resizeObserver.observe(document.body)
-
-    return () => {
-      resizeObserver.disconnect()
-      callback.cancel({ upcomingOnly: true })
-    }
-  }, [debounce, resize])
-
-  const onResizeObserver = useCallback(
-    ([entry]: any) => {
-      const { width, height } = entry.contentRect
-
-      lazyRect.current = { ...lazyRect.current, width, height }
-      if (!lazy) {
-        setRect(lazyRect.current)
-      }
-    },
-    [lazy]
-  )
-
-  const getRect = useCallback(() => lazyRect.current, [])
-
-  useEffect(() => {
-    return () => {
-      // avoid strict mode double execution
-      if (process.env.NODE_ENV !== 'development') {
-        // disconnect resizeObserver on unmount
-        resizeObserver.current?.disconnect()
-      }
-    }
-  }, [])
-
-  const setRef = useCallback(
-    (node) => {
-      if (!node || node === element.current) return
-
-      resizeObserver.current?.disconnect()
-      resizeObserver.current = new ResizeObserver(onResizeObserver)
-      resizeObserver.current.observe(node)
-      element.current = node
-    },
-    [resize]
-  )
-
-  return [setRef, lazy ? getRect : rect]
+  return element.getBoundingClientRect()
 }
