@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { useIsClient } from './use-is-client'
+import { useIsClient } from './useIsClient'
 
 /**
  * @name useMediaQuery

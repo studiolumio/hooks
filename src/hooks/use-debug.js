@@ -6,7 +6,7 @@
  */
 
 import { useMemo } from 'react'
-import { useIsClient } from './use-is-client'
+import { useIsClient } from './useIsClient'
 
 export function useDebug() {
   const isClient = useIsClient()
