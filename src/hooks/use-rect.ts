@@ -23,7 +23,7 @@ export function offsetLeft(element: any, accumulator: number = 0): any {
   return left
 }
 
-export function useRect({ lazy = false, debounce = 1000 }: any = {}) {
+export function useRect({ lazy = false, debounce = 1000 }) {
   const element = useRef()
   const resizeObserver = useRef<any>(null)
 
