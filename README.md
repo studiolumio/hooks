@@ -1,20 +1,3 @@
-[![HAMO](https://assets.studiofreight.com/hamo/header.png)](https://github.com/studio-freight/hamo)
-
-<!-- <p align="center">
-  <a aria-label="Vercel logo" href="https://vercel.com">
-    <img src="https://badgen.net/badge/icon/Next?icon=zeit&label&color=black&labelColor=black">
-  </a>
-  <br/>
-  <a aria-label="NPM version" href="https://www.npmjs.com/package/swr">
-    <img alt="" src="https://badgen.net/npm/v/swr?color=black&labelColor=black">
-  </a>
-  <a aria-label="Package size" href="https://bundlephobia.com/result?p=swr">
-    <img alt="" src="https://badgen.net/bundlephobia/minzip/swr?color=black&labelColor=black">
-  </a>
-  <a aria-label="License" href="https://github.com/vercel/swr/blob/main/LICENSE">
-    <img alt="" src="https://badgen.net/npm/license/swr?color=black&labelColor=black">
-  </a>
-</p> -->
 
 ## Introduction
 
@@ -25,7 +8,7 @@ A compilation of utility react hooks we use to make our magic, heavily inspired 
 ## Setup
 
 ```bash
-$ npm i @studio-lumio/hooks
+$ npm i @studiolumio/hooks
 ```
 
 or use whatever package manager you like the most

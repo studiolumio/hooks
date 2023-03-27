@@ -1,24 +1,24 @@
 {
-  "name": "@studio-freight/hamo",
+  "name": "@studiolumio/hooks",
   "version": "0.6.12",
-  "description": "hamo means hook, do the math.",
+  "description": "a compilation of utility react hooks we use to make our magic",
   "files": [
     "dist/**/*",
     "bundled/**/*"
   ],
   "sideEffects": false,
-  "source": "src/hamo.js",
-  "main": "dist/hamo.js",
-  "umd:main": "dist/hamo.umd.js",
-  "module": "dist/hamo.mjs",
+  "source": "src/hooks.js",
+  "main": "dist/hooks.js",
+  "umd:main": "dist/hooks.umd.js",
+  "module": "dist/hooks.mjs",
   "types": "dist/types/index.d.ts",
   "exports": {
-    "require": "./dist/hamo.js",
-    "default": "./dist/hamo.modern.mjs"
+    "require": "./dist/hooks.js",
+    "default": "./dist/hooks.modern.mjs"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/studio-freight/bibliotheca.git"
+    "url": "https://github.com/studiolumio/hooks.git"
   },
   "scripts": {
     "dev": "vite",
@@ -32,16 +32,16 @@
     "build:types": "tsc --allowJs -d --emitDeclarationOnly --declarationDir ./dist/types --removeComments ./src/index.js",
     "build:dist": "microbundle build -i src/ --o ./dist",
     "build:bundle": "npm-run-all build:bundle-full build:bundle-min",
-    "build:bundle-full": "microbundle build -i src/ --o ./bundled/hamo.js --no-sourcemap --no-pkg-main --external none --name Hamo --format umd  --no-compress",
-    "build:bundle-min": "microbundle build -i src/ --o ./bundled/hamo.min.js --no-sourcemap --no-pkg-main --external none --name Hamo --format umd"
+    "build:bundle-full": "microbundle build -i src/ --o ./bundled/hooks.js --no-sourcemap --no-pkg-main --external none --name hooks --format umd  --no-compress",
+    "build:bundle-min": "microbundle build -i src/ --o ./bundled/hooks.min.js --no-sourcemap --no-pkg-main --external none --name hooks --format umd"
   },
   "keywords": [],
-  "author": "@studio-freight",
+  "author": "@studiolumio",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/studio-freight/bibliotheca/issues"
+    "url": "https://github.com/studiolumio/hooks.git"
   },
-  "homepage": "https://github.com/studio-freight/bibliotheca#readme",
+  "homepage": "https://github.com/studiolumio/hooks#readme",
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.1.2",
     "eslint": "^8.33.0",
