@@ -29,7 +29,7 @@
     "postpublish": "git push --follow-tags",
     "preversion": "npm run build",
     "build": "npm-run-all --parallel clean build:dist build:bundle build:types",
-    "build:types": "tsc --allowJs -d --emitDeclarationOnly --declarationDir ./dist/types --removeComments ./src/index.ts",
+    "build:types": "tsc --allowJs -d --emitDeclarationOnly --declarationDir ./dist/types --removeComments ./src/index.js",
     "build:dist": "microbundle build -i src/ --o ./dist",
     "build:bundle": "npm-run-all build:bundle-full build:bundle-min",
     "build:bundle-full": "microbundle build -i src/ --o ./bundled/hooks.js --no-sourcemap --no-pkg-main --external none --name hooks --format umd  --no-compress",
