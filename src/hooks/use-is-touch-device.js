@@ -23,7 +23,7 @@ export function useIsTouchDevice() {
     window.addEventListener('resize', onResize, { passive: true })
 
     return () => {
-      window.removeEventListener('resize', onResize, { passive: true })
+      window.removeEventListener('resize', onResize)
     }
   }, [onResize])
 

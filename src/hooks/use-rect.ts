@@ -4,7 +4,7 @@ import { throttle } from 'throttle-debounce'
 // offsetTop function returns the offsetTop value of a DOM element.
 // The offsetTop value is the distance between the top of the element
 // and the top of the viewport.
-export function offsetTop(element, accumulator = 0) {
+export function offsetTop(element: any, accumulator: number = 0): any {
   const top = accumulator + element.offsetTop
   if (element.offsetParent) {
     return offsetTop(element.offsetParent, top)
@@ -15,7 +15,7 @@ export function offsetTop(element, accumulator = 0) {
 // offsetLeft function returns the offsetLeft value of a DOM element.
 // The offsetLeft value is the distance between the left of the element
 // and the left of the viewport.
-export function offsetLeft(element, accumulator = 0) {
+export function offsetLeft(element: any, accumulator: number = 0): any {
   const left = accumulator + element.offsetLeft
   if (element.offsetParent) {
     return offsetLeft(element.offsetParent, left)
@@ -23,13 +23,9 @@ export function offsetLeft(element, accumulator = 0) {
   return left
 }
 
-export function useRect({
-  // ignoreTransform = true,
-  lazy = false,
-  debounce = 1000,
-} = {}) {
+export function useRect({ lazy = false, debounce = 1000 }: any = {}) {
   const element = useRef()
-  const resizeObserver = useRef()
+  const resizeObserver = useRef<any>(null)
 
   const [rect, setRect] = useState({})
   const lazyRect = useRef(rect)
@@ -59,7 +55,7 @@ export function useRect({
   }, [debounce, resize])
 
   const onResizeObserver = useCallback(
-    ([entry]) => {
+    ([entry]: any) => {
       const { width, height } = entry.contentRect
 
       lazyRect.current = { ...lazyRect.current, width, height }

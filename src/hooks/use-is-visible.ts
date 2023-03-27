@@ -4,9 +4,19 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-export function useIsVisible({ root = null, rootMargin = '0px', threshold = 1.0, once = false } = {}) {
-  const observer = useRef()
-  const ref = useRef()
+export function useIsVisible({
+  root = null,
+  rootMargin = '0px',
+  threshold = 1.0,
+  once = false,
+}: {
+  root?: Element | Document | null
+  rootMargin?: string
+  threshold?: number
+  once?: boolean
+}) {
+  const observer = useRef<any>(null)
+  const ref = useRef<any>(null)
   const [inView, setInView] = useState(false)
 
   const setRef = useCallback((node) => {

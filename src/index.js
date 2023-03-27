@@ -1,20 +1,19 @@
 /*
  * This code imports all of the hooks in the hooks directory, and exports them.
- * It also exports the dispatch function from use-event-bus.js.
  * This file is used by the build system to create an entry point for the hooks.
  */
 
 export { useOnClickOutside } from './hooks/useOnClickOutside'
-export { useDebug } from './hooks/use-debug.js'
-export { useDocumentReadyState } from './hooks/use-document-ready-state.js'
-export { useFrame } from './hooks/use-frame.js'
+export { useDebug } from './hooks/use-debug'
+export { useDocumentReadyState } from './hooks/use-document-ready-state'
+export { useFrame } from './hooks/use-frame'
 export { useInterval } from './hooks/useInterval'
 export { useIsClient } from './hooks/useIsClient'
-export { useIsTouchDevice } from './hooks/use-is-touch-device.js'
-export { useIsVisible } from './hooks/use-is-visible.js'
-export { useMediaQuery } from './hooks/use-media-query.js'
+export { useIsTouchDevice } from './hooks/use-is-touch-device'
+export { useIsVisible } from './hooks/use-is-visible'
+export { useMediaQuery } from './hooks/use-media-query'
 export { useRect } from './hooks/use-rect'
-export { useSlots } from './hooks/use-slots.js'
+export { useSlots } from './hooks/use-slots'
 export { useWindowSize } from './hooks/useWindowSize'
 export { useIntersectionObserver } from './hooks/useIntersectionObserver'
 export { useIsomorphicLayoutEffect } from './hooks/useIsomorphicLayoutEffect'
