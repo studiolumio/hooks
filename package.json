@@ -22,6 +22,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "push": "git push && npm publish --access public",
     "clean": "npm-run-all --parallel clean:bundled clean:dist",
     "clean:bundled": "rimraf bundled",
     "clean:dist": "rimraf dist",
