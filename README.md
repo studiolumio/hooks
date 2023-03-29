@@ -1,6 +1,6 @@
 ## Introduction
 
-A compilation of utility react hooks we use to make our magic, heavily inspired by the SFDR Team [Studio Freight](https://studiofreight.com)
+A compilation of react hooks we use to make our magic at [Studio Lumio](https://studiolumio.com), heavily inspired by the SFDR's [Hamo](https://github.com/studio-freight/hamo)
 
 <br/>
 
