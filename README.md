@@ -1,4 +1,4 @@
-[![HOOKS](https://res.cloudinary.com/dmumzkthj/image/upload/v1680161585/Lumio/hooks_graph_etxfxn.png)][hooks]
+[![HOOKS](https://res.cloudinary.com/dmumzkthj/image/upload/v1680161585/Lumio/hooks_graph_etxfxn.png)]([hooks])
 
 ## Introduction
 
@@ -66,6 +66,7 @@ This toolkit is composed of:
 ## License
 
 [The MIT License.](https://opensource.org/licenses/MIT)
+
 [Studio Lumio][lumio].
 
 [def]: https://github.com/studiolumio/hooks
