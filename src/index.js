@@ -21,3 +21,7 @@ export { useCopyToClipboard } from './hooks/useCopyToClipboard'
 export { useEventListener } from './hooks/useEventListener'
 export { useDebounce } from './hooks/useDebounce'
 export { useEffectOnce } from './hooks/useEffectOnce'
+
+export { useFirstMountState } from './hooks/useFirstMountState'
+export { useUpdateEffect } from './hooks/useUpdateEffect'
+export { useIsMounted } from './hooks/useIsMounted'

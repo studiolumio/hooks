@@ -49,11 +49,17 @@ This toolkit is composed of:
 
 `useCopyToClipboard` – provides a copy method to save a string in the clipboard and the copied value
 
-`useEventListener` – it does what the name says. Pass in an event and a callback functions as params
+`useEventListener` – it does what the name says. Pass in an event and a callback function as the second parameter
 
 `useDebounce` – uses an internal timer to execute the callback function every x seconds (2nd parameter)
 
 `useEffectOnce` – `useEffect` that's executed only one time, on mount.
+
+`useUpdateEffect` – `useEffect` that ignores the first invocation (e.g. on mount)
+
+`useIsMounted` – it returns a callback that returns true if the component is mounted
+
+`useFirstMountState` – it returns true if component is just mounted.
 
 <br/>
 
