@@ -71,9 +71,7 @@ This toolkit is composed of:
 
 ## License
 
-[The MIT License.](https://opensource.org/licenses/MIT)
-
-[Studio Lumio][lumio].
+[MIT (c)](https://opensource.org/licenses/MIT) [Studio Lumio][lumio].
 
 [def]: https://github.com/studiolumio/hooks
 [lumio]: https://studiolumio.com
