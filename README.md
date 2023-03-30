@@ -1,6 +1,8 @@
+[![HOOKS](https://res.cloudinary.com/dmumzkthj/image/upload/v1680161585/Lumio/hooks_graph_etxfxn.png)][hooks]
+
 ## Introduction
 
-A compilation of react hooks we use to make our magic at [Studio Lumio](https://studiolumio.com), heavily inspired by the SFDR's [Hamo](https://github.com/studio-freight/hamo)
+A compilation of react hooks we use to make our magic at [Studio Lumio][lumio], heavily inspired by the SFDR's [Hamo][hamo]
 
 <br/>
 
@@ -57,10 +59,15 @@ This toolkit is composed of:
 
 ## Authors
 
-- Etuk Josiah Benjamin ([@jobenetuk](https://twitter.com/jobenetuk)) – [Studio Lumio](https://studiolumio.com)
+- Etuk Josiah Benjamin ([@jobenetuk](https://twitter.com/jobenetuk)) – [Studio Lumio][lumio]
 
 <br/>
 
 ## License
 
 [The MIT License.](https://opensource.org/licenses/MIT)
+[Studio Lumio][lumio].
+
+[def]: https://github.com/studiolumio/hooks
+[lumio]: https://studiolumio.com
+[hamo]: https://github.com/studio-freight/hamo
