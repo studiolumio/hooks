@@ -61,6 +61,8 @@ This toolkit is composed of:
 
 `useFirstMountState` – it returns true if component is just mounted.
 
+`useLocalStorage` – it is used similarly to ths `useState` hook. It takes in 2 parameters, the key and the initial value. `const [value, setValue] = useLocalStorage('valueKey', [])`
+
 <br/>
 
 ## Authors
