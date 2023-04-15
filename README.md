@@ -63,6 +63,8 @@ This toolkit is composed of:
 
 `useLocalStorage` – it is used similarly to ths `useState` hook. It takes in 2 parameters, the key and the initial value. `const [value, setValue] = useLocalStorage('valueKey', [])`
 
+`useLocalStorage` – pretty much the same as `useLocalStorage` just for session storage
+
 <br/>
 
 ## Authors
