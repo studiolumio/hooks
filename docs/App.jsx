@@ -6,12 +6,10 @@ import {
   useIsClient,
   useIsTouchDevice,
   useIsVisible,
-  useRect,
   useMediaQuery,
 } from '../src/index'
 
 function App() {
-  const [setRectRef, rect] = useRect(1000)
   const isTouch = useIsTouchDevice()
   const debug = useDebug()
   const isclient = useIsClient()

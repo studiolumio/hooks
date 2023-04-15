@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 type CopiedValue = string | null
-type CopyFn = (text: string, callback: () => any) => Promise<boolean> // Return success
+type CopyFn = (text: string, callback: () => any) => Promise<boolean>
 
 export function useCopyToClipboard(): [CopiedValue, CopyFn] {
   const [copiedText, setCopiedText] = useState<CopiedValue>(null)
@@ -12,7 +12,6 @@ export function useCopyToClipboard(): [CopiedValue, CopyFn] {
       return false
     }
 
-    // Try to save to clipboard then save it in the state if worked
     try {
       await navigator.clipboard.writeText(text)
       setCopiedText(text)
