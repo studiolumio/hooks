@@ -88,6 +88,8 @@ const { top, bottom } = useRect(elRef)
 
 `useSlots` – brings vue `slots` to react
 
+`useFoucFix` – temporary fix for FOUC bug from Next js
+
 `useWindowSize` – returns window dimensions
 
 ```
