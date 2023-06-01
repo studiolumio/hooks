@@ -22,7 +22,6 @@
   },
   "scripts": {
     "dev": "vite",
-    "start": "tsc && vite build",
     "push": "npm publish --access public",
     "clean": "npm-run-all --parallel clean:bundled clean:dist",
     "clean:bundled": "rimraf bundled",

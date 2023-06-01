@@ -6,7 +6,7 @@ A compilation of react hooks we use to make our magic at [Studio Lumio][lumio], 
 
 <br/>
 
-🚧API might change at any time🚧
+🚩The API may be subject to change without prior notice.
 
 <br/>
 
