@@ -29,17 +29,6 @@ function App() {
       <p>is in viewport? {inView ? 'yes' : 'no'}</p>
       <p>is client? {isclient ? 'yes' : 'no'}</p>
       <p>is Mobile? {isMobile ? 'yes' : 'no'}</p>
-      <div ref={setRectRef}>
-        top: {rect?.top}
-        <br />
-        height: {rect?.height}
-        <br />
-        left: {rect?.left}
-        <br />
-        top: {rect?.top}
-        <br />
-        width: {rect?.width}
-      </div>
     </main>
   )
 }
