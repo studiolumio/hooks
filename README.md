@@ -71,10 +71,6 @@ useInterval(() => {
 `useIsVisible` – returns true if a reference node is in the viewport.
 
 ```
-  const isVisible = useIsVisible()
-```
-
-```
 const { ref, inView } = useIsVisible({ threshold: 0.5, once: true, rootMargin: '0px', root: null })
 ```
 

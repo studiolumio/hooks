@@ -42,7 +42,7 @@
   "bugs": {
     "url": "https://github.com/studiolumio/hooks.git"
   },
-  "homepage": "https://github.com/studiolumio/hooks#readme",
+  "homepage": "https://hooks.studiolumio.com/",
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.1.2",
     "@types/react": "^18.0.28",
