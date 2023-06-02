@@ -1,6 +1,6 @@
 {
   "name": "@studio-lumio/hooks",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "a compilation of react hooks we use to make our magic",
   "files": [
     "dist/**/*",
