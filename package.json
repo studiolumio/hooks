@@ -36,7 +36,11 @@
     "build:bundle-full": "microbundle build -i src/ --o ./bundled/hooks.js --no-sourcemap --no-pkg-main --external none --name hooks --format umd  --no-compress",
     "build:bundle-min": "microbundle build -i src/ --o ./bundled/hooks.min.js --no-sourcemap --no-pkg-main --external none --name hooks --format umd"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "lumio",
+    "hooks"
+  ],
   "author": "@studiolumio",
   "license": "ISC",
   "bugs": {
