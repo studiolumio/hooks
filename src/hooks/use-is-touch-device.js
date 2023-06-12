@@ -1,21 +1,33 @@
-/*
-  This hook checks if the device has a touch screen. It checks for the touchstart event,
-  as well as the maxTouchPoints property on the navigator object. It also checks the
-  msMaxTouchPoints property, which is specific to Microsoft browsers.
-*/
-
 import { useCallback, useEffect, useState } from 'react'
 
-export function useIsTouchDevice() {
-  const check = useCallback(
-    () => 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0,
-    []
-  )
+export const useIsTouchDevice = () => {
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
 
-  const [isTouchDevice, setIsTouchDevice] = useState(undefined)
+  const check = useCallback(() => {
+    let hasTouchScreen = false
+
+    if ('maxTouchPoints' in navigator) {
+      hasTouchScreen = navigator.maxTouchPoints > 0
+    } else {
+      const mediaQueryList = window.matchMedia('(pointer:coarse)')
+      if (mediaQueryList && mediaQueryList.media === '(pointer:coarse)') {
+        hasTouchScreen = !!mediaQueryList.matches
+      } else {
+
+        const UA = window.navigator.userAgent
+        hasTouchScreen =
+          /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) || /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA)
+      }
+    }
+    if (hasTouchScreen) {
+      setIsTouchDevice(true)
+    } else {
+      setIsTouchDevice(false)
+    }
+  }, [])
 
   const onResize = useCallback(() => {
-    setIsTouchDevice(check())
+    check()
   }, [check])
 
   useEffect(() => {
