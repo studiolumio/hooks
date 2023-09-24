@@ -1,4 +1,4 @@
-import React, { createContext, memo, useContext, useEffect, useState } from 'react'
+import { createContext, memo, useContext, useEffect, useState } from 'react'
 import { useCallback } from 'react'
 
 import { useIOSToolbarState } from './useIOSToolbarState'
