@@ -183,6 +183,14 @@ const [value, setValue] = useLocalStorage('valueKey', [])
 const [value, setValue] = useSessionStorage('valueKey', [])
 ```
 
+```
+const {isVisible} = useIOSToolbarState()
+```
+
+```
+  useScript(url)
+```
+
 <br/>
 
 ## Authors

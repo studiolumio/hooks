@@ -28,7 +28,6 @@
     "clean:dist": "rimraf dist",
     "prepublishOnly": "npm version patch",
     "postpublish": "git push --follow-tags",
-    "buildb": "microbundle --jsx React.createElement --compress --no-sourcemap",
     "preversion": "npm run build",
     "build": "npm-run-all --parallel clean build:dist build:bundle build:types",
     "build:types": "tsc --allowJs -d --emitDeclarationOnly --declarationDir ./dist/types --removeComments ./src/index.js",
