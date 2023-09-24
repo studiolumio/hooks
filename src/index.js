@@ -28,3 +28,5 @@ export { useIsMounted } from './hooks/useIsMounted'
 export { useLocalStorage } from './hooks/useLocalStorage'
 export { useSessionStorage } from './hooks/useSessionStorage'
 export { useFoucFix } from './hooks/useFoucFix'
+
+export { useRealViewport } from './hooks/useRealViewport'
