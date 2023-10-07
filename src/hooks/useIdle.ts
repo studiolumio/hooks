@@ -1,10 +1,10 @@
-import { throttle } from '@/utils'
-import React from 'react'
+import { throttle } from '../utils'
+import { useState, useEffect } from 'react'
 
 export function useIdle(ms = 1000 * 60) {
-  const [idle, setIdle] = React.useState(false)
+  const [idle, setIdle] = useState(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     let timeoutId
 
     const handleTimeout = () => {

@@ -1,10 +1,10 @@
-import React from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export function useHover() {
-  const [hovering, setHovering] = React.useState(false)
-  const ref = React.useRef(null)
+  const [hovering, setHovering] = useState(false)
+  const ref = useRef(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const node = ref.current
 
     if (!node) return

@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import Cookies from 'js-cookie'
 
-const useCookie = (
+export const useCookie = (
   cookieName: string
 ): [string | null, (newValue: string, options?: Cookies.CookieAttributes) => void, () => void] => {
   const [value, setValue] = useState<string | null>(() => Cookies.get(cookieName) || null)
@@ -21,5 +21,3 @@ const useCookie = (
 
   return [value, updateCookie, deleteCookie]
 }
-
-export default useCookie

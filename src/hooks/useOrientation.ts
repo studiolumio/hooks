@@ -1,12 +1,12 @@
-import React from 'react'
+import { useState, useLayoutEffect } from 'react'
 
 export function useOrientation() {
-  const [orientation, setOrientation] = React.useState({
+  const [orientation, setOrientation] = useState({
     angle: 0,
     type: 'landscape-primary',
   })
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     const handleChange = () => {
       const { angle, type } = window.screen.orientation
       setOrientation({

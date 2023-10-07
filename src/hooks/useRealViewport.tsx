@@ -3,7 +3,7 @@ import { useCallback } from 'react'
 
 import { useIOSToolbarState } from './useIOSToolbarState'
 import { useScript } from './useScript'
-import { debounce } from '@/utils'
+import { debounce } from '../utils'
 
 const vwCssVar = 'vw'
 const vhCssVar = 'vh'

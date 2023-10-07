@@ -1,7 +1,7 @@
-import { off, on } from '@/utils'
+import { off, on } from '../utils'
 import { useEffect } from 'react'
 
-const usePageLeave = (onPageLeave, args = []) => {
+export const usePageLeave = (onPageLeave, args = []) => {
   useEffect(() => {
     if (!onPageLeave) {
       return
@@ -21,5 +21,3 @@ const usePageLeave = (onPageLeave, args = []) => {
     }
   }, args)
 }
-
-export default usePageLeave
