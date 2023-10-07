@@ -31,3 +31,4 @@ export { useFoucFix } from './hooks/useFoucFix'
 
 export { useIOSToolbarState } from './hooks/useIOSToolbarState'
 export { useScript } from './hooks/useScript'
+export { useKeySequence } from './hooks/useKeySequence'

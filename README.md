@@ -191,6 +191,10 @@ const {isVisible} = useIOSToolbarState()
   useScript(url)
 ```
 
+```
+useKeySequence({ sequence: 'sequence', callback: () => console.log('yay') })
+```
+
 <br/>
 
 ## Authors
