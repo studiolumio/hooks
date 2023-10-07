@@ -188,11 +188,67 @@ const {isVisible} = useIOSToolbarState()
 ```
 
 ```
-  useScript(url)
+useScript(url)
+```
+
+```
+useFavicon(url);
 ```
 
 ```
 useKeySequence({ sequence: 'sequence', callback: () => console.log('yay') })
+```
+
+```
+ const idle = useIdle(5000);
+```
+
+```
+ useDocumentTitle('new title');
+```
+
+```
+const orientation = useOrientation();
+```
+
+```
+  usePageLeave(() => {
+    console.log('come back')
+  });
+```
+
+```
+const [value, updateCookie, deleteCookie] = useCookie(cookieName: string);
+```
+
+```
+export default function App() {
+  const [ref, hovering] = useHover();
+
+  return (
+      <div ref={ref}>
+        IsHovering? {hovering ? "Yes" : "No"}
+      </div>
+  );
+}
+```
+
+```
+  const [list, { set, push, removeAt, insertAt, updateAt, clear }] = useList([
+    "one",
+    "two",
+    "three",
+  ]);
+
+  console.log(list)
+  const random = () => {
+    set([1, 2, 3])
+    push([1, 2, 3])
+    removeAt(1)
+    insertAt(1, "okay")
+    updateAt(1, "okay")
+    clear()
+  }
 ```
 
 <br/>

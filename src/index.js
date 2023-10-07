@@ -31,4 +31,13 @@ export { useFoucFix } from './hooks/useFoucFix'
 
 export { useIOSToolbarState } from './hooks/useIOSToolbarState'
 export { useScript } from './hooks/useScript'
+
 export { useKeySequence } from './hooks/useKeySequence'
+export { useFavicon } from './hooks/useFavicon'
+export { useIdle } from './hooks/useIdle'
+export { useDocumentTitle } from './hooks/useDocumentTitle'
+export { useHover } from './hooks/useHover'
+export { usePageLeave } from './hooks/usePageLeave'
+export { useOrientation } from './hooks/useOrientation'
+export { useList } from './hooks/useList'
+export { useCookie } from './hooks/useCookie'

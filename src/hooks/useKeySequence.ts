@@ -1,4 +1,4 @@
-export const useKeySequence = ({ sequence, callback }) => {
+export const useKeySequence = ({ sequence, callback }: { sequence: string; callback: () => void }) => {
   function keyMapper(options) {
     const eventType = (options && options.eventType) || 'keydown'
     const keystrokeDelay = (options && options.keystrokeDelay) || 1000
