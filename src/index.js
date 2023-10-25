@@ -41,3 +41,6 @@ export { usePageLeave } from './hooks/usePageLeave'
 export { useOrientation } from './hooks/useOrientation'
 export { useList } from './hooks/useList'
 export { useCookie } from './hooks/useCookie'
+
+export { useThrottle } from './hooks/useThrottle'
+export { useUnmount } from './hooks/useUnmount'
