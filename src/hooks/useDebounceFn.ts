@@ -1,29 +1,31 @@
 import { useEffect, useRef } from 'react'
 
-export function useDebounceFn(fn, delay) {
-  const { current } = useRef({ fn, timer: null })
+export function useDebounceFn(fn: (...args: any[]) => any, delay: number) {
+  const current = useRef<{ fn: (...args: any[]) => any; timer: NodeJS.Timeout | null }>({ fn, timer: null })
 
   useEffect(
     function () {
-      current.fn = fn
+      current.current.fn = fn
     },
     [fn]
   )
 
-  return function (...args) {
+  return function (...args: any[]) {
     function tick() {
-      current.timer = null
-      current.fn.apply(this, args)
+      current.current.timer = null
+      current.current.fn.apply(this, args)
     }
 
-    if (current.timer) {
-      clearTimeout(current.timer)
+    if (current.current.timer) {
+      clearTimeout(current.current.timer)
     }
 
-    current.timer = setTimeout(tick, delay)
+    current.current.timer = setTimeout(tick, delay)
 
     return function () {
-      clearTimeout(current.timer)
+      if (current.current.timer) {
+        clearTimeout(current.current.timer)
+      }
     }
   }
 }
