@@ -136,11 +136,20 @@ const documentRef = useRef<Document>(document)
   useEventListener('click', () => console.log('clicked'), elRef)
 ```
 
-`useDebounce` – uses an internal timer to execute the callback function every x seconds (2nd parameter)
+`useDebounce` – uses an internal timer to update the variable every x seconds (2nd parameter)
 
 ```
 const [value, setValue] = useState<string>('')
 const debouncedValue = useDebounce<string>(value, 500)
+```
+
+`useDebounceFn` – uses an internal timer to execute the callback function every x seconds (2nd parameter)
+
+```
+const debouncedFn = useDebounceFn(() => {
+  console.log('This function is debounced!');
+}, 500);
+
 ```
 
 `useEffectOnce` – `useEffect` that's executed only one time, on mount.
