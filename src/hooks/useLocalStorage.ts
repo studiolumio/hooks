@@ -1,9 +1,12 @@
 import { useState } from 'react'
 
 // Define the type for the initial value
-type InitialValueType = string | number | boolean | object | null
+type InitialValueType = string | number | boolean | object | null | any
+type StoredValue = InitialValueType
+type SetValue = (value: InitialValueType | ((val: InitialValueType) => InitialValueType)) => void
+type RemoveValue = () => void
 
-export function useLocalStorage(key: string, initialValue: InitialValueType) {
+export function useLocalStorage(key: string, initialValue?: InitialValueType): [StoredValue, SetValue, RemoveValue] {
   const [storedValue, setStoredValue] = useState<InitialValueType>(() => {
     if (typeof window === 'undefined') {
       return initialValue
