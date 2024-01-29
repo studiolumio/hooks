@@ -23,7 +23,7 @@ export function useSessionStorage(key, initialValue) {
       setStoredValue(valueToStore)
 
       if (typeof window !== 'undefined') {
-        window.localStorage.setItem(key, JSON.stringify(valueToStore))
+        window.sessionStorage.setItem(key, JSON.stringify(valueToStore))
       }
     } catch (error) {
       console.log(error)
