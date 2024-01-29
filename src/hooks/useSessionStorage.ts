@@ -1,8 +1,10 @@
 import { useState } from 'react'
 
-// Hook
-export function useSessionStorage(key, initialValue) {
-  const [storedValue, setStoredValue] = useState(() => {
+// Define the type for the initial value
+type InitialValueType = string | number | boolean | object | null | any
+
+export function useSessionStorage(key: string, initialValue: InitialValueType) {
+  const [storedValue, setStoredValue] = useState<InitialValueType>(() => {
     if (typeof window === 'undefined') {
       return initialValue
     }
@@ -16,7 +18,7 @@ export function useSessionStorage(key, initialValue) {
     }
   })
 
-  const setValue = (value) => {
+  const setValue = (value: InitialValueType | ((val: InitialValueType) => InitialValueType)) => {
     try {
       const valueToStore = value instanceof Function ? value(storedValue) : value
 
@@ -29,5 +31,16 @@ export function useSessionStorage(key, initialValue) {
       console.log(error)
     }
   }
-  return [storedValue, setValue]
+
+  const removeValue = () => {
+    try {
+      if (typeof window !== 'undefined') {
+        window.sessionStorage.removeItem(key)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  return [storedValue, setValue, removeValue] as const
 }

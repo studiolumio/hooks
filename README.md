@@ -183,7 +183,7 @@ const isFirstMountState = useFirstMountState()
 `useLocalStorage` – it is used similarly to ths `useState` hook. It takes in 2 parameters, the key and the initial value.
 
 ```
-const [value, setValue] = useLocalStorage('valueKey', [])
+const [value, setValue, removeValue] = useLocalStorage('valueKey', [])
 ```
 
 `useSessionStorage` – pretty much the same as `useLocalStorage` just for session storage
