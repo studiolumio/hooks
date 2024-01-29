@@ -6,7 +6,10 @@ type StoredValue = InitialValueType
 type SetValue = (value: InitialValueType | ((val: InitialValueType) => InitialValueType)) => void
 type RemoveValue = () => void
 
-export function useSessionStorage(key: string, initialValue?: InitialValueType): [StoredValue, SetValue, RemoveValue] {
+export function useSessionStorage(
+  key: string,
+  initialValue?: InitialValueType
+): Readonly<[StoredValue, SetValue, RemoveValue]> {
   const [storedValue, setStoredValue] = useState<InitialValueType>(() => {
     if (typeof window === 'undefined') {
       return initialValue
