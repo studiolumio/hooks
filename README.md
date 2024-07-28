@@ -146,10 +146,6 @@ const App = () => {
 
 ```
 
-```
-const entry = useIntersectionObserver(ref, {})
-```
-
 `useIsomorphicLayoutEffect` – identical to useEffect, but fires synchronously after all DOM mutations.
 
 ```
