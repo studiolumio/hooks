@@ -1,4 +1,4 @@
-import { debounce } from '@/utils'
+import { debounce } from '../utils'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 /**

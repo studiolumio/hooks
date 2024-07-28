@@ -116,8 +116,6 @@ const App = () => (
   <Footer>My Footer</Footer>
 </MyComponent>
 );
-
-export default App;
 ```
 
 `useFoucFix` – temporary fix for FOUC bug from Next js

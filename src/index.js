@@ -45,3 +45,6 @@ export { useCookie } from './hooks/useCookie'
 export { useThrottle } from './hooks/useThrottle'
 export { useUnmount } from './hooks/useUnmount'
 export { useDebounceFn } from './hooks/useDebounceFn'
+
+export { useResizeObserver } from './hooks/useResizeObserver'
+export { useRealViewport } from './hooks/useRealViewport'
