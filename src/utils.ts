@@ -1,16 +1,4 @@
-export function debounce(func: () => void, wait: number, immediate?: boolean) {
-  let timeout: number | null
-  return function () {
-    timeout && window.clearTimeout(timeout)
-    timeout = window.setTimeout(() => {
-      timeout = null
-      if (!immediate) func()
-    }, wait)
-    if (immediate && !timeout) func()
-  }
-}
-
-export function throttle(cb, ms) {
+export function throttle(cb: { (e: any): void; (): void }, ms: number) {
   let lastTime = 0
   return () => {
     const now = Date.now()
@@ -19,6 +7,68 @@ export function throttle(cb, ms) {
       lastTime = now
     }
   }
+}
+
+type DebouncedFunction<T extends (...args: any[]) => any> = T & {
+  cancel: () => void
+  flush: () => void
+}
+
+export function debounce<T extends (...args: any[]) => any>(
+  fn: T,
+  wait: number,
+  callFirst?: boolean
+): DebouncedFunction<T> {
+  let timeout: ReturnType<typeof setTimeout> | null = null
+  let debouncedFn: (() => void) | null = null
+
+  const clear = () => {
+    if (timeout) {
+      clearTimeout(timeout)
+      debouncedFn = null
+      timeout = null
+    }
+  }
+
+  const flush = () => {
+    const call = debouncedFn
+    clear()
+    if (call) {
+      call()
+    }
+  }
+
+  const debounceWrapper = function (this: any, ...args: any[]) {
+    if (!wait) {
+      return fn.apply(this, args)
+    }
+
+    const context = this
+    const callNow = callFirst && !timeout
+    clear()
+
+    debouncedFn = function () {
+      fn.apply(context, args)
+    }
+
+    timeout = setTimeout(() => {
+      timeout = null
+      if (!callNow) {
+        const call = debouncedFn
+        debouncedFn = null
+        return call && call()
+      }
+    }, wait)
+
+    if (callNow) {
+      return debouncedFn()
+    }
+  } as DebouncedFunction<T>
+
+  debounceWrapper.cancel = clear
+  debounceWrapper.flush = flush
+
+  return debounceWrapper
 }
 
 export const noop = () => {}
