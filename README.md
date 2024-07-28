@@ -244,6 +244,27 @@ const debouncedFn = useDebounceFn(() => {
 
 ```
 
+`useLazyState` – A React hook for lazy state management with a callback on state updates.
+
+Parameters:
+
+    •	initialValue (T): Initial state value.
+    •	callback ((newValue: T, oldValue: T) => void): Function called on state change.
+
+Returns:
+
+    •	get (() => T): Get current state.
+    •	set ((value: T | ((prevState: T) => T)) => void): Set state.
+
+```
+const [getState, setState] = useLazyState(0, (newValue, oldValue) => {
+  console.log(`State changed from ${oldValue} to ${newValue}`);
+});
+
+setState(1); // Logs: "State changed from 0 to 1"
+const currentState = getState(); // currentState is 1
+```
+
 `useEffectOnce` – `useEffect` that's executed only one time, on mount.
 
 ```

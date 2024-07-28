@@ -48,3 +48,4 @@ export { useDebounceFn } from './hooks/useDebounceFn'
 
 export { useResizeObserver } from './hooks/useResizeObserver'
 export { useRealViewport } from './hooks/useRealViewport'
+export { useLazyState } from './hooks/useLazyState'
