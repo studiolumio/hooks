@@ -11,7 +11,7 @@ export function useIdle(ms = 1000 * 60) {
       setIdle(true)
     }
 
-    const handleEvent = throttle((e) => {
+    const handleEvent = throttle(() => {
       setIdle(false)
 
       window.clearTimeout(timeoutId)
