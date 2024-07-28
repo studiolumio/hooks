@@ -16,14 +16,19 @@ interface ResizeObserverProps {
   callback?: (entry: ResizeObserverEntry) => void
 }
 
+type UseResizeObserverReturn = [
+  (element: HTMLElement | null) => void,
+  ResizeObserverEntry | (() => ResizeObserverEntry | undefined)
+]
+
 export function useResizeObserver({
   lazy = false,
   debounce: debounceDelay = 500,
   box = 'border-box',
   callback = () => {},
-}: ResizeObserverProps = {}) {
+}: ResizeObserverProps = {}): UseResizeObserverReturn {
   const entryRef = useRef<ResizeObserverEntry | null>(null)
-  const [entry, setEntry] = useState<ResizeObserverEntry | {}>({})
+  const [entry, setEntry] = useState<ResizeObserverEntry>(null)
   const [element, setElement] = useState<Element | null>(null)
   const needsUpdateRef = useRef(false)
 
@@ -64,5 +69,5 @@ export function useResizeObserver({
 
   const get = useCallback(() => entryRef.current, [])
 
-  return [setElement, lazy ? get : entry] as const
+  return [setElement, lazy ? get : entry]
 }
