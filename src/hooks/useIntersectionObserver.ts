@@ -11,7 +11,7 @@ interface UseIntersectionObserverProps {
 
 type UseIntersectionObserverReturn = [
   (element: HTMLElement | null) => void,
-  IntersectionObserverEntry | (() => IntersectionObserverEntry | undefined)
+  IntersectionObserverEntry | (() => IntersectionObserverEntry | undefined) | any
 ]
 
 /**

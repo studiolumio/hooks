@@ -49,3 +49,6 @@ export { useDebounceFn } from './hooks/useDebounceFn'
 export { useResizeObserver } from './hooks/useResizeObserver'
 export { useRealViewport } from './hooks/useRealViewport'
 export { useLazyState } from './hooks/useLazyState'
+
+export { useTimeout } from './hooks/use-timeout'
+export { useObjectFit } from './hooks/use-object-fit'
