@@ -26,6 +26,7 @@ export function useIsVisible({
   }, [])
 
   const callbackFunction = useCallback((entries) => {
+    if (entries.length === 0) return
     const [entry] = entries
     setInView(entry.isIntersecting)
   }, [])

@@ -126,6 +126,30 @@ const App = () => (
 const { width, height } = useWindowSize()
 ```
 
+`useThrottle` – throttles value updates to prevent excessive re-renders.
+
+```
+const throttledValue = useThrottle(value, 200)
+```
+
+`useTimeout` – executes a callback after a specified delay.
+
+```
+useTimeout(() => console.log('done'), 1000)
+```
+
+`useObjectFit` – calculates scale factors for CSS object-fit behavior.
+
+```
+const [scaleX, scaleY] = useObjectFit(parentWidth, parentHeight, childWidth, childHeight, 'cover')
+```
+
+`useUnmount` – runs a function when the component unmounts.
+
+```
+useUnmount(() => console.log('component unmounted'))
+```
+
 `useIntersectionObserver` – Observe element visibility using IntersectionObserver
 
 Parameters
