@@ -136,6 +136,22 @@ usePageLeave(() => {
 
 ---
 
+### `usePageVisibility`
+
+Returns `true` when the page is visible, `false` when the user switches to a different tab or window.
+
+```jsx
+const isVisible = usePageVisibility()
+
+useEffect(() => {
+  if (!isVisible) {
+    console.log('User switched away from this tab')
+  }
+}, [isVisible])
+```
+
+---
+
 ### `useIdle`
 
 Detects when the user has been idle for a specified duration (default: 1 minute).
@@ -184,8 +200,8 @@ useOnClickOutside(ref, () => console.log('Clicked outside'))
 Attaches an event listener to a target (window, document, or element).
 
 ```jsx
-const elRef = useRef<HTMLElement>(null)
-const documentRef = useRef<Document>(document)
+const elRef = useRef < HTMLElement > null
+const documentRef = useRef < Document > document
 
 // Window event
 useEventListener('scroll', () => console.log('Scrolled'))
@@ -206,11 +222,7 @@ Detects hover state on an element.
 ```jsx
 const [ref, hovering] = useHover()
 
-return (
-  <div ref={ref}>
-    IsHovering? {hovering ? 'Yes' : 'No'}
-  </div>
-)
+return <div ref={ref}>IsHovering? {hovering ? 'Yes' : 'No'}</div>
 ```
 
 ---
@@ -220,9 +232,9 @@ return (
 Executes a callback when a specific key sequence is typed.
 
 ```jsx
-useKeySequence({ 
-  sequence: 'lumio', 
-  callback: () => console.log('Secret code entered!') 
+useKeySequence({
+  sequence: 'lumio',
+  callback: () => console.log('Secret code entered!'),
 })
 ```
 
@@ -259,11 +271,7 @@ const [value, updateCookie, deleteCookie] = useCookie('myCookie')
 Provides advanced array state management with helper methods.
 
 ```jsx
-const [list, { set, push, removeAt, insertAt, updateAt, clear }] = useList([
-  'one',
-  'two',
-  'three',
-])
+const [list, { set, push, removeAt, insertAt, updateAt, clear }] = useList(['one', 'two', 'three'])
 
 // Available methods
 set(['new', 'array'])
@@ -281,10 +289,12 @@ clear()
 Lazy state management with a callback on state updates.
 
 **Parameters:**
+
 - `initialValue`: Initial state value
 - `callback`: Function called on state change `(newValue, oldValue) => void`
 
 **Returns:**
+
 - `get`: Function to get current state
 - `set`: Function to set state
 
@@ -444,10 +454,12 @@ useIsomorphicLayoutEffect(() => {
 Extracts children of specified component types from a component's children.
 
 **Parameters:**
+
 - `types`: Array of component types to extract (default: `[]`)
 - `children`: Children to extract from (default: `[]`)
 
 **Returns:**
+
 - Array of children of the specified component types
 
 ```jsx
@@ -459,12 +471,8 @@ const MyComponent = ({ children }) => {
 
   return (
     <div>
-      <div className="header-content">
-        {headerContent || 'Default Header Content'}
-      </div>
-      <div className="footer-content">
-        {footerContent || 'Default Footer Content'}
-      </div>
+      <div className="header-content">{headerContent || 'Default Header Content'}</div>
+      <div className="footer-content">{footerContent || 'Default Footer Content'}</div>
     </div>
   )
 }
@@ -506,6 +514,7 @@ const { width, height } = useWindowSize()
 Sets CSS variables for accurate viewport units across different browsers.
 
 **CSS Variables:**
+
 - `--vw`: Viewport width
 - `--dvh`: Dynamic viewport height
 - `--svh`: Small viewport height
@@ -535,13 +544,7 @@ const { top, bottom, left, right, width, height } = useRect(elRef)
 Calculates scale factors for CSS object-fit behavior.
 
 ```jsx
-const [scaleX, scaleY] = useObjectFit(
-  parentWidth,
-  parentHeight,
-  childWidth,
-  childHeight,
-  'cover'
-)
+const [scaleX, scaleY] = useObjectFit(parentWidth, parentHeight, childWidth, childHeight, 'cover')
 ```
 
 ---
@@ -551,17 +554,18 @@ const [scaleX, scaleY] = useObjectFit(
 Returns `true` if a referenced element is in the viewport.
 
 **Parameters:**
+
 - `threshold`: Visibility threshold (0 to 1)
 - `once`: Disconnect observer after first intersection
 - `rootMargin`: Margin around the root
 - `root`: Viewport for checking visibility
 
 ```jsx
-const { ref, inView } = useIsVisible({ 
-  threshold: 0.5, 
-  once: true, 
-  rootMargin: '0px', 
-  root: null 
+const { ref, inView } = useIsVisible({
+  threshold: 0.5,
+  once: true,
+  rootMargin: '0px',
+  root: null,
 })
 ```
 
@@ -572,6 +576,7 @@ const { ref, inView } = useIsVisible({
 Observes element visibility using the IntersectionObserver API.
 
 **Parameters:**
+
 - `root`: Viewport for checking visibility (default: `null`)
 - `rootMargin`: Margin around the root (default: `'0px'`)
 - `threshold`: Visibility threshold 0-1 (default: `0`)
@@ -580,14 +585,15 @@ Observes element visibility using the IntersectionObserver API.
 - `callback`: Function called on visibility change
 
 **Returns:**
+
 - `[setElement, entry]`: Ref setter and IntersectionObserver entry
 
 ```jsx
-const [setElement, entry] = useIntersectionObserver({ 
+const [setElement, entry] = useIntersectionObserver({
   threshold: 0.5,
   callback: (entry) => {
     console.log('Visibility changed:', entry)
-  }
+  },
 })
 
 return <div ref={setElement}>Observe me</div>
@@ -600,12 +606,14 @@ return <div ref={setElement}>Observe me</div>
 Observes element dimensions using ResizeObserver, with optional debouncing and lazy state updates.
 
 **Parameters:**
+
 - `lazy`: If `true`, returns a getter for the current entry instead of state (default: `false`)
 - `debounce`: Delay in ms between resize events (default: `500`)
 - `box`: Box model to observe - `'border-box'` or `'content-box'` (default: `'border-box'`)
 - `callback`: Called on resize with ResizeObserverEntry (default: `() => {}`)
 
 **Returns:**
+
 - `[setElement, entry]`: Ref setter and ResizeObserver entry
 
 ```jsx
@@ -623,10 +631,7 @@ useEffect(() => {
 }, [entry])
 
 return (
-  <div 
-    ref={setElement} 
-    style={{ resize: 'both', overflow: 'auto', width: 200, height: 200 }}
-  >
+  <div ref={setElement} style={{ resize: 'both', overflow: 'auto', width: 200, height: 200 }}>
     Resize me!
   </div>
 )
@@ -641,6 +646,7 @@ return (
 Manages localStorage with a useState-like API.
 
 **Returns:**
+
 - `[value, setValue, removeValue]`
 
 ```jsx
