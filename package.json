@@ -48,7 +48,7 @@
   },
   "homepage": "https://hooks.studiolumio.com/",
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^8.1.2",
+    "@size-limit/preset-small-lib": "^13.0.3",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/throttle-debounce": "^5.0.0",
@@ -65,12 +65,12 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^4.9.5",
-    "vite": "^4.0.4"
+    "vite": "^6.4.3"
   },
   "dependencies": {
-    "@studio-freight/tempus": "^0.0.36",
+    "@studio-freight/tempus": "^0.0.44",
     "@types/node": "^18.15.10",
-    "js-cookie": "^3.0.5",
+    "js-cookie": "^3.0.8",
     "rimraf": "^4.1.2",
     "throttle-debounce": "^5.0.0"
   },
@@ -79,6 +79,12 @@
     "@types/react-dom": "^18.0.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "rollup-plugin-terser": "6.1.0",
+      "serialize-javascript": "7.0.5"
+    }
   },
   "release": {
     "branches": [
