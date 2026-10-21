@@ -68,7 +68,6 @@
     "vite": "^6.4.3"
   },
   "dependencies": {
-    "@studio-freight/tempus": "^0.0.44",
     "@types/node": "^18.15.10",
     "js-cookie": "^3.0.8",
     "rimraf": "^4.1.2",

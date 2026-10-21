@@ -12,9 +12,6 @@ importers:
 
   .:
     dependencies:
-      '@studio-freight/tempus':
-        specifier: ^0.0.44
-        version: 0.0.44
       '@types/node':
         specifier: ^18.15.10
         version: 18.19.130
@@ -1219,10 +1216,6 @@ packages:
     resolution: {integrity: sha512-rqKn1+JkVF5ckZRmcxeQPZ8g0e9Fqddh6bjmDotijXJtN40KJQ+5TG6pTiYq3RaA4nkuEkixHULpDBGcgAARAg==}
     peerDependencies:
       size-limit: 13.0.3
-
-  '@studio-freight/tempus@0.0.44':
-    resolution: {integrity: sha512-ycSc+IY3PGtj7x1KwIJ1sacceQDA6ODzwlrm/1hODADVGS0l/rE5XH9NfyaHSYVECLBnJTdrU+AJiYtd39INXg==}
-    deprecated: 'The ''@studio-freight/tempus'' package has been renamed to ''tempus''. Please update your dependencies: npm install tempus and visit the documentation: https://www.npmjs.com/package/tempus'
 
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
@@ -4506,8 +4499,6 @@ snapshots:
       '@size-limit/esbuild': 13.0.3(size-limit@13.0.3)
       '@size-limit/file': 13.0.3(size-limit@13.0.3)
       size-limit: 13.0.3
-
-  '@studio-freight/tempus@0.0.44': {}
 
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     dependencies:
