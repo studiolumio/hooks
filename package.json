@@ -1,6 +1,6 @@
 {
   "name": "@studio-lumio/hooks",
-  "version": "0.1.46",
+  "version": "0.1.47",
   "description": "a compilation of react hooks we use to make our magic",
   "files": [
     "dist/**/*",
@@ -8,6 +8,11 @@
   ],
   "sideEffects": false,
   "source": "src/hooks.js",
+  "babel": {
+    "presets": [
+      "@babel/preset-typescript"
+    ]
+  },
   "main": "dist/hooks.js",
   "umd:main": "dist/hooks.umd.js",
   "module": "dist/hooks.mjs",
@@ -26,15 +31,15 @@
     "clean": "npm-run-all --parallel clean:bundled clean:dist",
     "clean:bundled": "rimraf bundled",
     "clean:dist": "rimraf dist",
-    "prepublishOnly": "npm version patch",
+    "prepublishOnly": "npm run build",
     "postpublish": "git push --follow-tags",
     "preversion": "npm run build",
     "build": "npm-run-all --parallel clean build:dist build:bundle build:types",
     "build:types": "tsc --allowJs -d --emitDeclarationOnly --declarationDir ./dist/types --removeComments --skipLibCheck ./src/index.js",
-    "build:dist": "microbundle --jsx React.createElement --compress build -i src/ --o ./dist",
+    "build:dist": "microbundle --jsx React.createElement --no-compress build -i src/ --o ./dist",
     "build:bundle": "npm-run-all build:bundle-full build:bundle-min",
     "build:bundle-full": "microbundle build -i src/ --o ./bundled/hooks.js --no-sourcemap --no-pkg-main --external none --name hooks --format umd  --no-compress",
-    "build:bundle-min": "microbundle build -i src/ --o ./bundled/hooks.min.js --no-sourcemap --no-pkg-main --external none --name hooks --format umd"
+    "build:bundle-min": "microbundle build -i src/ --o ./bundled/hooks.min.js --no-sourcemap --no-pkg-main --external none --name hooks --format umd --no-compress"
   },
   "keywords": [
     "react",
@@ -48,6 +53,8 @@
   },
   "homepage": "https://hooks.studiolumio.com/",
   "devDependencies": {
+    "@babel/core": "^8.0.7",
+    "@babel/preset-typescript": "^8.0.7",
     "@size-limit/preset-small-lib": "^13.0.3",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
