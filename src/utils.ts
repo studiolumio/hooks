@@ -38,7 +38,7 @@ export function debounce<T extends (...args: any[]) => any>(
     }
   }
 
-  const debounceWrapper = function (this: any, ...args: any[]) {
+  const debounceWrapper: any = function (this: any, ...args: any[]) {
     if (!wait) {
       return fn.apply(this, args)
     }
@@ -63,7 +63,7 @@ export function debounce<T extends (...args: any[]) => any>(
     if (callNow) {
       return debouncedFn()
     }
-  } as DebouncedFunction<T>
+  }
 
   debounceWrapper.cancel = clear
   debounceWrapper.flush = flush
@@ -75,19 +75,19 @@ export const noop = () => {}
 
 export function on<T extends Window | Document | HTMLElement | EventTarget>(
   obj: T | null,
-  ...args: Parameters<T['addEventListener']> | [string, Function | null, ...any]
+  ...args: any[]
 ): void {
-  if (obj && obj.addEventListener) {
-    obj.addEventListener(...(args as Parameters<HTMLElement['addEventListener']>))
+  if (obj && 'addEventListener' in obj) {
+    obj.addEventListener.apply(obj, args)
   }
 }
 
 export function off<T extends Window | Document | HTMLElement | EventTarget>(
   obj: T | null,
-  ...args: Parameters<T['removeEventListener']> | [string, Function | null, ...any]
+  ...args: any[]
 ): void {
-  if (obj && obj.removeEventListener) {
-    obj.removeEventListener(...(args as Parameters<HTMLElement['removeEventListener']>))
+  if (obj && 'removeEventListener' in obj) {
+    obj.removeEventListener.apply(obj, args)
   }
 }
 
