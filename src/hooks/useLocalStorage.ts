@@ -48,5 +48,5 @@ export function useLocalStorage(
     }
   }
 
-  return [storedValue, setValue, removeValue] as const
+  return [storedValue, setValue, removeValue] as const;
 }

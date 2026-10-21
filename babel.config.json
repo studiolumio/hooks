@@ -1,3 +1,8 @@
 {
-  "presets": ["@babel/preset-typescript"]
+  "presets": [
+    [
+      "@babel/preset-typescript",
+      { "allExtensions": true, "isTSX": false }
+    ]
+  ]
 }
