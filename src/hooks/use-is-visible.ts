@@ -9,14 +9,9 @@ export function useIsVisible({
   rootMargin = '0px',
   threshold = 1.0,
   once = false,
-}: {
-  root?: Element | Document | null
-  rootMargin?: string
-  threshold?: number
-  once?: boolean
-}) {
-  const observer = useRef<any>(null)
-  const ref = useRef<any>(null)
+} = {}) {
+  const observer = useRef(null)
+  const ref = useRef(null)
   const [inView, setInView] = useState(false)
 
   const setRef = useCallback((node) => {
