@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "module": "ESNext",
+    "target": "ES2019",
+    "jsx": "react-jsx",
+    "outDir": "./dist/esm",
+    "declaration": false,
+    "rootDir": "./src"
+  },
+  "include": ["src"]
+}

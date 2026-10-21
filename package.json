@@ -7,19 +7,35 @@
     "bundled/**/*"
   ],
   "sideEffects": false,
-  "source": "src/index.js",
+  "source": "src/index.ts",
   "babel": {
     "presets": [
-      "@babel/preset-typescript"
-    ]
+      [
+        "@babel/preset-typescript",
+        {
+          "allExtensions": true,
+          "isTSX": false
+        }
+      ]
+    ],
+    "parserOpts": {
+      "plugins": [
+        "typescript",
+        "jsx"
+      ]
+    }
   },
-  "main": "dist/hooks.js",
-  "umd:main": "dist/hooks.umd.js",
-  "module": "dist/hooks.mjs",
+  "main": "dist/cjs/index.js",
+  "umd:main": "dist/cjs/index.js",
+  "module": "dist/cjs/index.js",
   "types": "dist/types/index.d.ts",
   "exports": {
-    "require": "./dist/hooks.js",
-    "default": "./dist/hooks.modern.mjs"
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/cjs/index.js",
+      "default": "./dist/cjs/index.js"
+    }
   },
   "repository": {
     "type": "git",
@@ -32,13 +48,16 @@
     "clean:bundled": "rimraf bundled",
     "clean:dist": "rimraf dist",
     "preversion": "npm run build",
+    "prepublishOnly": "npm run build",
     "version": "npm run build && git add -A",
-    "build": "npm-run-all --parallel clean build:dist build:bundle build:types",
-    "build:types": "tsc --allowJs -d --emitDeclarationOnly --declarationDir ./dist/types --removeComments --skipLibCheck ./src/index.js",
-    "build:dist": "microbundle --jsx React.createElement --no-compress build -i src/ --o ./dist",
+    "build": "npm-run-all --parallel clean build:dist build:types",
+    "build:types": "tsc -p tsconfig.build.types.json",
+    "build:dist": "npm-run-all build:dist:cjs build:dist:esm",
+    "build:dist:cjs": "tsc -p tsconfig.build.cjs.json",
+    "build:dist:esm": "tsc -p tsconfig.build.esm.json",
     "build:bundle": "npm-run-all build:bundle-full build:bundle-min",
-    "build:bundle-full": "microbundle build -i src/ --o ./bundled/hooks.js --no-sourcemap --no-pkg-main --external none --name hooks --format umd  --no-compress",
-    "build:bundle-min": "microbundle build -i src/ --o ./bundled/hooks.min.js --no-sourcemap --no-pkg-main --external none --name hooks --format umd --no-compress"
+    "build:bundle-full": "microbundle build -i src/index.ts --o ./bundled/hooks.js --no-sourcemap --no-pkg-main --external none --name hooks --format umd  --no-compress",
+    "build:bundle-min": "microbundle build -i src/index.ts --o ./bundled/hooks.min.js --no-sourcemap --no-pkg-main --external none --name hooks --format umd --no-compress"
   },
   "keywords": [
     "react",
