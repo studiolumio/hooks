@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 interface UseIntersectionObserverProps {
-  root?: HTMLElement | null
-  rootMargin?: string
-  threshold?: number
-  once?: boolean
-  lazy?: boolean
-  callback?: (entry: IntersectionObserverEntry) => void
+  root?: HTMLElement | null;
+  rootMargin?: string;
+  threshold?: number;
+  once?: boolean;
+  lazy?: boolean;
+  callback?: (entry: IntersectionObserverEntry) => void;
 }
 
 type UseIntersectionObserverReturn = [

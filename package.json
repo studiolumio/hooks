@@ -1,6 +1,6 @@
 {
   "name": "@studio-lumio/hooks",
-  "version": "0.1.47",
+  "version": "0.1.48",
   "description": "a compilation of react hooks we use to make our magic",
   "files": [
     "dist/**/*",
@@ -31,9 +31,8 @@
     "clean": "npm-run-all --parallel clean:bundled clean:dist",
     "clean:bundled": "rimraf bundled",
     "clean:dist": "rimraf dist",
-    "prepublishOnly": "npm run build",
-    "postpublish": "git push --follow-tags",
     "preversion": "npm run build",
+    "version": "npm run build && git add -A",
     "build": "npm-run-all --parallel clean build:dist build:bundle build:types",
     "build:types": "tsc --allowJs -d --emitDeclarationOnly --declarationDir ./dist/types --removeComments --skipLibCheck ./src/index.js",
     "build:dist": "microbundle --jsx React.createElement --no-compress build -i src/ --o ./dist",

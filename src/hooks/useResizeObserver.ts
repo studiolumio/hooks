@@ -10,10 +10,10 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
  */
 
 interface ResizeObserverProps {
-  lazy?: boolean
-  debounce?: number
-  box?: ResizeObserverBoxOptions
-  callback?: (entry: ResizeObserverEntry) => void
+  lazy?: boolean;
+  debounce?: number;
+  box?: ResizeObserverBoxOptions;
+  callback?: (entry: ResizeObserverEntry) => void;
 }
 
 type UseResizeObserverReturn = [

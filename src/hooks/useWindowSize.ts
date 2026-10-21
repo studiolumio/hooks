@@ -3,8 +3,8 @@ import { useEventListener } from './useEventListener'
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
 
 interface WindowSize {
-  width: number
-  height: number
+  width: number;
+  height: number;
 }
 
 export const useWindowSize = (): WindowSize => {
