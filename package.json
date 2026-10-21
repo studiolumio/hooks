@@ -7,7 +7,7 @@
     "bundled/**/*"
   ],
   "sideEffects": false,
-  "source": "src/hooks.js",
+  "source": "src/index.js",
   "babel": {
     "presets": [
       "@babel/preset-typescript"
@@ -52,8 +52,8 @@
   },
   "homepage": "https://hooks.studiolumio.com/",
   "devDependencies": {
-    "@babel/core": "^8.0.7",
-    "@babel/preset-typescript": "^8.0.7",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-typescript": "^7.29.7",
     "@size-limit/preset-small-lib": "^13.0.3",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
